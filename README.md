@@ -10,3 +10,12 @@
 5) *Vinícius Jorge*
 
 Link da apresentação do projeto: *https://docs.google.com/presentation/d/1jXG9zOrDczI70_5cUYn29p1wcSJmhUAO_AurGSCUNo/edit#slide=id.p*
+
+## Para Executar o Projeto
+
+1) Faça clone do projeto
+2) Crie um ambiente virtual do python3
+3) Execute pip install -r requirements.txt
+4) Execute python src/main.py
+
+## Durante a execução do programa sempre que as telas de vídeo abrirem aperte ESC assim que desejar fechar.
