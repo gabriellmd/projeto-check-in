@@ -15,10 +15,10 @@ Link da apresentação do projeto: *https://docs.google.com/presentation/d/1jXG9
 
 * Faça clone do projeto
 * Crie um ambiente virtual do python3
-    * virtualenv -p python3 envname
-    * source envname/bin/activate
+    * `virtualenv -p python3 envname`
+    * `source envname/bin/activate`
 * Acesse a pasta src do projeto
-   * cd src
+   * `cd src`
 * Execute pip install -r src/requirements.txt
 * Execute python src/main.py
 
