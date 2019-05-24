@@ -15,7 +15,7 @@ Link da apresentação do projeto: *https://docs.google.com/presentation/d/1jXG9
 
 1) Faça clone do projeto
 2) Crie um ambiente virtual do python3
-3) Execute pip install -r requirements.txt
+3) Execute pip install -r src/requirements.txt
 4) Execute python src/main.py
 
 ## Durante a execução do programa sempre que as telas de vídeo abrirem aperte ESC assim que desejar fechar.
