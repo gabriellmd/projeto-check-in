@@ -14,6 +14,7 @@ def rotate(image):
     # rotate the image by 180 degrees
     M = cv2.getRotationMatrix2D(center, 180, 1.0)
     rotated = cv2.warpAffine(image, M, (w, h))
+    rotated = cv2.flip(rotated, 1)
     return rotated
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
