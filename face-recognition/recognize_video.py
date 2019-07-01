@@ -17,12 +17,14 @@ import time
 import cv2
 import os
 import csv
-import pandas
+# import pandas
 
 confianca = 0.80
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
+ap.add_argument("-ch", "--chamada", required=True,
+	help="path to csv file to write presence")
 ap.add_argument("-d", "--detector", required=True,
 	help="path to OpenCV's deep learning face detector")
 ap.add_argument("-m", "--embedding-model", required=True,
@@ -34,6 +36,8 @@ ap.add_argument("-l", "--le", required=True,
 ap.add_argument("-c", "--confidence", type=float, default=0.5,
 	help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
+
+chamada = args["chamada"]
 
 # load our serialized face detector from disk
 print("[INFO] loading face detector...")
@@ -116,13 +120,17 @@ while True:
 			name = le.classes_[j]
 			if (proba >= confianca):
 				value = [name, str(proba)]
-				if os.path.exists("chamada.csv"):
-					c = csv.writer(open("chamada.csv", "a"))
+				if os.path.exists(chamada):
+					c = csv.writer(open(chamada, "a"))
 				else:
-					c = csv.writer(open("chamada.csv", "w"))
+					c = csv.writer(open(chamada, "w"))
 					c.writerow(["Nome", "Confianca"])
-				
-				c.writerows([value])				
+
+				chamada_ = open(chamada).read().splitlines()[1:]
+				nomes_chamada = [e.split(',')[0] for e in chamada_]
+
+				if not name in nomes_chamada:
+					c.writerows([value])
 
 			# draw the bounding box of the face along with the
 			# associated probability
