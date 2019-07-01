@@ -16,6 +16,10 @@ import pickle
 import time
 import cv2
 import os
+import csv
+import pandas
+
+confianca = 0.80
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -110,14 +114,29 @@ while True:
 			j = np.argmax(preds)
 			proba = preds[j]
 			name = le.classes_[j]
+			if (proba >= confianca):
+				value = [name, str(proba)]
+				if os.path.exists("chamada.csv"):
+					c = csv.writer(open("chamada.csv", "a"))
+				else:
+					c = csv.writer(open("chamada.csv", "w"))
+					c.writerow(["Nome", "Confianca"])
+				
+				c.writerows([value])				
 
 			# draw the bounding box of the face along with the
 			# associated probability
 			text = "{}: {:.2f}%".format(name, proba * 100)
 			y = startY - 10 if startY - 10 > 10 else startY + 10
-			cv2.rectangle(frame, (startX, startY), (endX, endY),
+			if (proba >= confianca):
+				cv2.rectangle(frame, (startX, startY), (endX, endY),
+				(0, 255, 0), 2)
+				cv2.putText(frame, text, (startX, y),
+				cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 255, 0), 2)
+			else:
+				cv2.rectangle(frame, (startX, startY), (endX, endY),
 				(0, 0, 255), 2)
-			cv2.putText(frame, text, (startX, y),
+				cv2.putText(frame, text, (startX, y),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
 
 	# update the FPS counter
