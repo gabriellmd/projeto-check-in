@@ -9,7 +9,7 @@
 4) *Hemillainy Santos*
 5) *Vinícius Jorge*
 
-Link da apresentação do projeto: *https://docs.google.com/presentation/d/1jXG9zOrDczI70_5cUYn29p1wcSJmhUAO_AurGSCUNo/edit#slide=id.p*
+Link da apresentação do projeto: *https://docs.google.com/presentation/d/1IMi1-DLaV6r8kAyXQtqf7Jesx8AnMQRGjckbMYgTJfM/edit?usp=sharing*
 
 ## Para Executar o Projeto
 
@@ -24,4 +24,4 @@ Link da apresentação do projeto: *https://docs.google.com/presentation/d/1jXG9
       * Extração e Treinamento: `python main.py 1`
       * Abrir Reconhecedor: `python main.py 2 nome_arquivo_chamada.csv`
 
-## Durante a execução do programa sempre que as telas de vídeo abrirem aperte ESC assim que desejar fechar.
+## Durante a execução do programa sempre que as telas de vídeo abrirem aperte 'Q' assim que desejar fechar.
