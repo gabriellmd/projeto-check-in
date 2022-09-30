@@ -1,5 +1,5 @@
 imutils==0.5.2
-joblib==0.13.2
+joblib==1.2.0
 numpy==1.16.4
 opencv-python==4.1.0.25
 pkg-resources==0.0.0
